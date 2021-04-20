@@ -4,7 +4,8 @@ from selenium.webdriver.common.by import By
 class TwitterSearchLocator:
     LOCATOR_USERNAME = (By.XPATH, "//input[@name='username']")
     LOCATOR_PASSWORD = (By.XPATH, "//input[@name='password']")
-    LOCATOR_ENTER = (By.XPATH, "//span[text()='Log In']")
+    LOCATOR_ENTER = (By.XPATH, "//button[@class='AnimatedForm__submitButton m-full-width']")
+    FIND_FIELD = (By.XPATH, "//input[@placeholder='Create Post']")
 
 class SearchHelper(BaseRedditPage):
 
@@ -22,3 +23,6 @@ class SearchHelper(BaseRedditPage):
 
     def click_on_the_login_button(self):
         return self.find_element(TwitterSearchLocator.LOCATOR_ENTER, time=2).click()
+
+    def click_on_the_field(self):
+        return self.find_element()
