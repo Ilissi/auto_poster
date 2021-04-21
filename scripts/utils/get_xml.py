@@ -1,7 +1,7 @@
 import requests
 import os
+import uuid
 
-url = 'https://4kporn.xxx/admin/feeds/reddit/?csv_columns=title%7Cdescription%7Clink%7Cmain_screenshot%7Ctags&feed_format=csv&csv_separator=%7C&csv_list_separator=%2C&csv_quote=1&limit=5&sorting=post_date+desc&screenshot_format=320x180&hd=1&min_rating=60&max_rating=100&utm_source=reddit&utm_medium=plugs&utm_campaign=username'
 
 def get_list(url):
     xml_text = requests.get(url)
@@ -14,37 +14,45 @@ def generate_tags(string_with_elements):
 def get_os_path():
     return os.environ['PYTHONPATH'].split(os.pathsep)
 
-def save_image(url_for_save):
-    response = requests.get(url_for_save)
-    path = f'{get_os_path()}/{}'
-    file = open("sample_image.png", "wb")
+def save_image(url_for_img, dir_for_save):
+    response = requests.get(url_for_img)
+    path_for_save_file = f'{dir_for_save}/{str(uuid.uuid4())}.png'
+    file = open(path_for_save_file, "wb")
     file.write(response.content)
     file.close()
+    return path_for_save_file
 
-def string_to_dict_post_reddit(data):
-    keys_list = ['title', 'description', 'url', 'img', 'tags']
+def string_joiner(first_string, second_string, third_string):
+    return first_string + '\n' + second_string + '\n' + third_string
+
+def string_to_dict_post_reddit(data, dir_for_save):
+    keys_list = ['title', 'description', 'url', 'img_path', 'tags']
     list_for_generate_dict = data.replace('"', '').split("|")
-
+    list_for_generate_dict[3] = save_image(list_for_generate_dict[3], dir_for_save)
+    list_for_generate_dict[4] = generate_tags(list_for_generate_dict[4])
     return {keys_list[i]: list_for_generate_dict[i] for i in range(len(keys_list))}
 
+def cut_tags(first_string, second_string, third_string):
+    sum_string = len(first_string + '\n' + second_string + '\n' + third_string)
+    if sum_string >= 255:
+        cut_string = len(third_string) - (sum_string - 255)
+        return third_string[:cut_string]
+    else:
+        return third_string
+
+
 def string_to_send_tweet(data):
-    list_for_generate_dict = data.replace('"', '').split("|")
-    list_for_generate_dict[4] = generate_tags(list_for_generate_dict[4])
-    list_for_generate_dict.pop(3)
-    return '\n'.join([str(elem) for elem in list_for_generate_dict])
+    list_for_generate = data.replace('"', '').split("|")
+    list_for_generate[4] = generate_tags(list_for_generate[4])
+    list_for_generate[4] = cut_tags(list_for_generate[0], list_for_generate[1], list_for_generate[4])
+    list_for_generate.pop(3)
+
+    return '\n'.join([str(elem) for elem in list_for_generate])
 
 
 
 
-print(len("""Lady jasoos web series EP3
-Bhahi banged! nude all alone inside Beauty bed harder into night dree
-
-
-#fuck_harder #fucking #hot_fuck #hottest #ladies #lady #naked_fuck #series #web #web_series #one_night #in_bed #la_e #banged_hard #hard_bang #hard_inside #hard"""))
-
-
-print(get_os_path())
-xml_list = get_list(url)
-for c in xml_list[:-1]:
-    print(string_to_send_tweet(c))
-print(generate_tags('stepson,la el,step son,la e,min min,winter,coming,with,pamela'))
+#print(get_os_path())
+#xml_list = get_list(url)
+#for c in xml_list[:-1]:
+#    print(string_to_dict_post_reddit(c))

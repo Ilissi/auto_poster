@@ -23,3 +23,6 @@ class BaseTwitterPage:
 
     def go_to_site(self):
         return self.driver.get(self.base_url)
+
+    def quit(self):
+        return self.driver.quit()

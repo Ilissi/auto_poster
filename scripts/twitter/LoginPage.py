@@ -1,4 +1,6 @@
-from BaseTwitterPage import BaseTwitterPage
+import time
+
+from auto_poster.scripts.twitter.BaseTwitterPage import BaseTwitterPage
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 
@@ -33,5 +35,9 @@ class SearchHelper(BaseTwitterPage):
         return send_title
 
     def click_on_the_tweet_button(self):
-        return self.find_element(TwitterSearchLocator.LOCATOR_SEND_TWEET, time=2).click()
+        first_of_all = self.find_element(TwitterSearchLocator.LOCATOR_SEND_TWEET, time=2).click()
+        time.sleep(1)
+        return self.quit()
+
+
 
