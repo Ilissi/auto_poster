@@ -1,12 +1,22 @@
-from selenium.webdriver.chrome.options import Options
+For using these scripts
+Need to enter next fields:
 
+    In reddit_users:
+        username - login for reddit
+        password - password for redit
+        reddit_community - subreddit for posts
 
-options = Options()
-PROXY = "11.456.448.110:8080"
-chrome_options = WebDriver.ChromeOptions()
-chrome_options.add_argument('--proxy-server=%s' % PROXY)
+    In twitter_users:
+        username - login for twitter
+        password - password for twitter
 
-options.add_argument('--headless')
-options.add_argument('--disable-gpu')  # Last I checked this was necessary.
-driver = webdriver.Chrome(CHROMEDRIVER_PATH, chrome_options=options)
+    url_for_parse - enter for url from where will be parse xml
+    DirForSave - enter full path for directory where will save image for reddit posts
+    SeleniumPath - enter full path for selenium webdriver
+    proxies - enter proxies of will need else you can left "" - is mean a empty value
+
+In case, when something will happened with posting you can find it in your cron log: "Something happened with posted of reddit" - example
+
+For normal working script need use 1 time per hour as mminimum
+
 

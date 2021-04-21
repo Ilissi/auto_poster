@@ -9,9 +9,11 @@ def reddited(browser, username, password, community, title, description, urls, i
         reddit_login_page.enter_username(username)
         reddit_login_page.enter_password(password)
         reddit_login_page.click_on_the_login_button()
+        time.sleep(5)
         reddit_login_page.click_on_the_field()
+        time.sleep(5)
         reddit_login_page.send_reddit_post(community, title, description, urls, image, tag)
-        time.sleep(20)
+        time.sleep(10)
         reddit_login_page.send_post()
         time.sleep(5)
 
