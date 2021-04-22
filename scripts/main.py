@@ -4,7 +4,7 @@ from selenium import webdriver
 
 from reddit import reddit_utils
 from twitter import tweet_utils
-from scripts.utils import get_xml
+from utils import get_xml
 
 def main():
     config = jsoncfg.load_config('config.cfg')
