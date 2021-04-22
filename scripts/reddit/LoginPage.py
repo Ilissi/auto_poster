@@ -1,6 +1,6 @@
 import time
 
-from BaseRedditPage import BaseRedditPage
+from scripts.reddit.BaseRedditPage import BaseRedditPage
 from selenium.webdriver.common.by import By
 
 from scripts.utils import get_xml
