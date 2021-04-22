@@ -1,5 +1,5 @@
 import time
-from .LoginPage import SearchHelper
+from .reddit.LoginPage import SearchHelper
 
 
 def reddited(browser, username, password, community, title, description, urls, image, tag):
