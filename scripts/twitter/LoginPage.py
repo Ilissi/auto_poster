@@ -39,5 +39,8 @@ class SearchHelper(BaseTwitterPage):
         time.sleep(1)
         return self.quit()
 
+    def excep(self):
+        return self.do_screen()
+
 
 
