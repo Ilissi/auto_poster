@@ -1,9 +1,9 @@
 import time
 
-from .scripts.reddit.BaseRedditPage import BaseRedditPage
+from reddit.BaseRedditPage import BaseRedditPage
 from selenium.webdriver.common.by import By
 
-from .scripts.utils import get_xml
+from utils import get_xml
 
 class RedditSearchLocator:
     LOCATOR_USERNAME = (By.XPATH, "//input[@name='username']")
