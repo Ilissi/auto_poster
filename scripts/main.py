@@ -7,7 +7,7 @@ from twitter import tweet_utils
 from utils import get_xml
 
 def main():
-    config = jsoncfg.load_config('config.cfg')
+    config = jsoncfg.load_config('scripts/config.cfg')
     chrome_options = webdriver.ChromeOptions()
     if config.proxies() != "":
         chrome_options.add_argument('--proxy-server=%s' % config.proxies)
