@@ -1,6 +1,6 @@
 import time
 
-from auto_poster.scripts.twitter.BaseTwitterPage import BaseTwitterPage
+from scripts.twitter.BaseTwitterPage import BaseTwitterPage
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 

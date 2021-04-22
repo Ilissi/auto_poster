@@ -17,6 +17,10 @@ Need to enter next fields:
 
 In case, when something will happened with posting you can find it in your cron log: "Something happened with posted of reddit" - example
 
-For normal working script need use 1 time per hour as mminimum
+For normal working script need use 1 time per hour as minimum
+
+For installing
+
+1. Download Selenium Webdriver
 
 

@@ -1,5 +1,5 @@
 import time
-from auto_poster.scripts.twitter.LoginPage import SearchHelper
+from scripts.twitter.LoginPage import SearchHelper
 
 def tweeted(browser, username, password, title):
     try:

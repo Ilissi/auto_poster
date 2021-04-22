@@ -4,9 +4,10 @@ from selenium import webdriver
 
 from reddit import reddit_utils
 from twitter import tweet_utils
-from auto_poster.scripts.utils import get_xml
+from scripts.utils import get_xml
 
 def main():
+    print(__name__)
     config = jsoncfg.load_config('config.cfg')
     chrome_options = webdriver.ChromeOptions()
     if config.proxies() != "":
