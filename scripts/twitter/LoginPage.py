@@ -7,8 +7,8 @@ from selenium.webdriver.common.keys import Keys
 class TwitterSearchLocator:
     LOCATOR_USERNAME = (By.XPATH, "//input[@name='session[username_or_email]']")
     LOCATOR_PASSWORD = (By.XPATH, "//input[@name='session[password]']")
-    LOCATOR_ENTER_RU = (By.XPATH, "//span[text()='Log in']")
-    LOCATOR_ENTER_EN = (By.XPATH, "//span[text()='Войти']")
+    LOCATOR_ENTER_EN = (By.XPATH, "//span[text()='Log in']")
+    LOCATOR_ENTER_RU = (By.XPATH, "//span[text()='Войти']")
     LOCATOR_TEXT_FIELD = (By.XPATH,  "//div[@class='public-DraftStyleDefault-block public-DraftStyleDefault-ltr']")
     LOCATOR_SEND_TWEET = (By.XPATH, "//span[@class='css-901oao css-16my406 css-bfa6kz r-poiln3 r-bcqeeo r-qvutc0']//span[@class='css-901oao css-16my406 r-poiln3 r-bcqeeo r-qvutc0'][contains(text(),'Tweet')]")
 
