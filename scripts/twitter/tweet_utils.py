@@ -11,8 +11,6 @@ def tweeted(browser, username, password, title):
         twitter_login_page.send_tweet(title)
         time.sleep(5)
         twitter_login_page.click_on_the_tweet_button()
-        time.sleep(5)
     except:
-        twitter_login_page.excep()
         print('Something wrong with twitter')
 

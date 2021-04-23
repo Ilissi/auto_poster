@@ -39,7 +39,7 @@ def main():
             data_for_post = get_xml.string_to_dict_post_reddit(urls_data, config.DirForSave())
             reddit_utils.reddited(browser, reddit_user['username'], reddit_user['password'], reddit_user['reddit_community'], data_for_post['title'], data_for_post['description'],
                      data_for_post['url'], data_for_post['img_path'], data_for_post['tags'])
-            print('complete')
+
 
 
 

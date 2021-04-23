@@ -36,7 +36,7 @@ class SearchHelper(BaseTwitterPage):
 
     def click_on_the_tweet_button(self):
         first_of_all = self.find_element(TwitterSearchLocator.LOCATOR_SEND_TWEET, time=2).click()
-        time.sleep(1)
+        time.sleep(2)
         return self.quit()
 
     def excep(self):
