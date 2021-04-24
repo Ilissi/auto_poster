@@ -16,7 +16,7 @@ def main():
 
     prefs = {"profile.default_content_setting_values.notifications": 2}
     chrome_options.add_experimental_option("prefs", prefs)
-    chrome_options.add_argument('window-size=2560,1440')
+    chrome_options.add_argument('window-size=1560,1440')
     chrome_options.add_argument("--headless")
     chrome_options.add_argument('--no-sandbox')
     chrome_options.add_argument('--disable-dev-shm-usage')
