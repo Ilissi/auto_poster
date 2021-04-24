@@ -41,7 +41,9 @@ class SearchHelper(BaseRedditPage):
         send_title = self.send_keys_reddit(RedditSearchLocator.LOCATOR_TITLE, title)
         send_text_field = self.send_keys_reddit(RedditSearchLocator.LOCATOR_TEXTBOX, get_xml.string_joiner(description, urls, tag))
         time.sleep(1)
-        send_image = self.send_key_image(RedditSearchLocator.LOCATOR_IMAGE, image)
+        try:
+            send_image = self.send_key_image(RedditSearchLocator.LOCATOR_IMAGE, image)
+        except: print('Image not required')
 
     def send_post(self):
         firs_of_all = self.find_element(RedditSearchLocator.LOCATOR_POST, time=2).click()
