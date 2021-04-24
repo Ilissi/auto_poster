@@ -8,7 +8,7 @@ from twitter import tweet_utils
 from utils import get_xml
 
 def main():
-    config = jsoncfg.load_config('scripts/config.cfg')
+    config = jsoncfg.load_config('/home/adminroot/autoposter/auto_poster/scripts/config.cfg')
     chrome_options = webdriver.ChromeOptions()
     if config.proxies() != "":
         chrome_options.add_argument('--proxy-server=%s' % config.proxies)
@@ -16,9 +16,9 @@ def main():
 
     prefs = {"profile.default_content_setting_values.notifications": 2}
     chrome_options.add_experimental_option("prefs", prefs)
-    chrome_options.add_argument("--headless")
-    chrome_options.add_argument('--no-sandbox')
-    chrome_options.add_argument('--disable-dev-shm-usage')
+    #chrome_options.add_argument("--headless")
+    #chrome_options.add_argument('--no-sandbox')
+    #chrome_options.add_argument('--disable-dev-shm-usage')
 
     url_xml = config.url_for_parse()
 

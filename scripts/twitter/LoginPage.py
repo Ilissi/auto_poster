@@ -10,7 +10,8 @@ class TwitterSearchLocator:
     LOCATOR_ENTER_EN = (By.XPATH, "//span[text()='Log in']")
     LOCATOR_ENTER_RU = (By.XPATH, "//span[text()='Войти']")
     LOCATOR_TEXT_FIELD = (By.XPATH,  "//div[@class='public-DraftStyleDefault-block public-DraftStyleDefault-ltr']")
-    LOCATOR_SEND_TWEET = (By.XPATH, "//span[@class='css-901oao css-16my406 css-bfa6kz r-poiln3 r-bcqeeo r-qvutc0']//span[@class='css-901oao css-16my406 r-poiln3 r-bcqeeo r-qvutc0'][contains(text(),'Tweet')]")
+    LOCATOR_SEND_TWEET = (By.XPATH,  "//span[@class='css-901oao css-16my406 r-poiln3 r-bcqeeo r-qvutc0'][contains(text(),'Tweet')]")
+    LOCATOR_SEND_TWEET_1 = (By.XPATH, "//span[@class='css-901oao css-16my406 css-bfa6kz r-poiln3 r-bcqeeo r-qvutc0']//span[@class='css-901oao css-16my406 r-poiln3 r-bcqeeo r-qvutc0'][contains(text(),'Tweet')]")
 
 class SearchHelper(BaseTwitterPage):
 
@@ -35,8 +36,10 @@ class SearchHelper(BaseTwitterPage):
         return send_title
 
     def click_on_the_tweet_button(self):
-        first_of_all = self.find_element(TwitterSearchLocator.LOCATOR_SEND_TWEET, time=2).click()
-        time.sleep(2)
+        first_of_all = self.find_elements(TwitterSearchLocator.LOCATOR_SEND_TWEET, time=2)
+        for element in first_of_all:
+            element.click()
+            time.sleep(1)
         return self.quit()
 
     def excep(self):
