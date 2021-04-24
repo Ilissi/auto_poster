@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 import jsoncfg
 from selenium import webdriver
 
