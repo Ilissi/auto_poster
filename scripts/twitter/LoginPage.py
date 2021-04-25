@@ -33,7 +33,7 @@ class SearchHelper(BaseTwitterPage):
         return search_field
 
     def click_on_the_login_button(self):
-        return self.find_element(TwitterSearchLocator.LOCATOR_ENTER_RU, time=2).click()
+        return self.find_element(TwitterSearchLocator.LOCATOR_ENTER_EN, time=2).click()
 
     def send_tweet(self, title):
         send_title = self.send_keys_tweet(TwitterSearchLocator.LOCATOR_TEXT_FIELD, title)
