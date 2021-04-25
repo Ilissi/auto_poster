@@ -8,7 +8,7 @@ from twitter import tweet_utils
 from utils import get_xml
 
 def main():
-    config = jsoncfg.load_config('/home/adminroot/autoposter/auto_poster/scripts/config.cfg')
+    config = jsoncfg.load_config('config.cfg')
     chrome_options = webdriver.ChromeOptions()
     if config.proxies() != "":
         chrome_options.add_argument('--proxy-server=%s' % config.proxies)
@@ -16,7 +16,9 @@ def main():
 
     prefs = {"profile.default_content_setting_values.notifications": 2}
     chrome_options.add_experimental_option("prefs", prefs)
-    chrome_options.add_argument('window-size=1560,1440')
+    chrome_options.add_argument("--start-maximized")
+    chrome_options.add_argument('window-size=1440,821')
+    chrome_options.add_argument("user-agent=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.61 Safari/537.36")
     chrome_options.add_argument("--headless")
     chrome_options.add_argument('--no-sandbox')
     chrome_options.add_argument('--disable-dev-shm-usage')
@@ -30,7 +32,7 @@ def main():
                 executable_path=config.SeleniumPath(),
                 chrome_options=chrome_options)
             data_for_post = get_xml.string_to_send_tweet(urls_data)
-            tweet_utils.tweeted(browser, twitter_user['username'], twitter_user['password'], data_for_post)
+            tweet_utils.tweeted(browser, twitter_user['username'], twitter_user['password'], data_for_post, twitter_user['number_security'])
 
     for reddit_user in config.reddit_users():
         xlm_list = get_xml.get_list(url_xml)

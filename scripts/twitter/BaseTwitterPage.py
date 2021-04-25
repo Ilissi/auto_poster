@@ -21,6 +21,10 @@ class BaseTwitterPage:
             (locator), message=f"Can't find elements by locator {locator}")
         return ActionChains(self.driver).move_to_element(autotw1).click(autotw1).send_keys(keys_for_enter).perform()
 
+    def click_(self, locator):
+        element = self.find_element(locator)
+        return self.driver.execute_script("arguments[0].click();", element)
+
     def go_to_site(self):
         return self.driver.get(self.base_url)
 

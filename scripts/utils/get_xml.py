@@ -33,7 +33,7 @@ def string_to_dict_post_reddit(data, dir_for_save):
     return {keys_list[i]: list_for_generate_dict[i] for i in range(len(keys_list))}
 
 def cut_tags(first_string, second_string, third_string):
-    sum_string = len(first_string + '\n' + second_string + '\n' + third_string)
+    sum_string = len(first_string + '\n' + second_string + '\n' + third_string + '\n')
     if sum_string >= 255:
         cut_string = len(third_string) - (sum_string - 255)
         return third_string[:cut_string]
