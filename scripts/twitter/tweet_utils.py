@@ -13,6 +13,9 @@ def tweeted(browser, username, password, title, phone_number):
         twitter_login_page.send_tweet(title)
         time.sleep(3)
         twitter_login_page.click_on_the_tweet_button(title)
+        try:
+            twitter_login_page.click_on_the_tweet_button(title)
+        except: pass
     except:
         print('Something happened with posted of twitter')
         twitter_login_page.quit1()

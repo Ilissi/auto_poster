@@ -2,7 +2,7 @@ import time
 from reddit.LoginPage import SearchHelper
 
 
-def reddited(browser, username, password, community, title, description, urls, image, tag):
+def reddited(browser, username, password, community, title, urls):
     try:
         reddit_login_page = SearchHelper(browser)
         reddit_login_page.go_to_site()
@@ -12,8 +12,8 @@ def reddited(browser, username, password, community, title, description, urls, i
         time.sleep(5)
         reddit_login_page.click_on_the_field()
         time.sleep(5)
-        reddit_login_page.send_reddit_post(community, title, description, urls, image, tag)
-        time.sleep(10)
+        reddit_login_page.send_reddit_post(community, title, urls)
+        time.sleep(2)
         reddit_login_page.send_post()
         time.sleep(5)
 
